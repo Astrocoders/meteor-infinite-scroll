@@ -19,7 +19,7 @@ Optionally you can pass a `template`, so InfiniteScroll.
 ```js
 Template.Foo.onRendered(function(){
   // With the template passed to the InfiniteScroll constructor
-  // it will be able to query the threshold element with template.$.
+  // it will be able to query for the threshold element with template.$.
   this.infinite = new InfiniteScroll('.overflow-scroll', this);
   this.infinite.onInfinite(function(){
     console.log('You like to scroll!');
