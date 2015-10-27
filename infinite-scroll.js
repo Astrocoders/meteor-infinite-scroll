@@ -1,4 +1,4 @@
-/* globals InfiniteScroll*/
+/* globals InfiniteScroll, jQuery*/
 
 InfiniteScroll = class {
   /**
@@ -8,7 +8,11 @@ InfiniteScroll = class {
    * @return {InfiniteScroll}
    */
   constructor(threshold, template){
-    this.threshold = template ? template.$(threshold) : $(threshold);
+    if(threshold instanceof jQuery){
+      this.threshold = threshold;
+    } else {
+      this.threshold = template ? template.$(threshold) : $(threshold);
+    }
     this.infinite = $({});
 
     if(this.threshold.length === 0){
@@ -43,7 +47,7 @@ InfiniteScroll = class {
   run(){
     return this.threshold.on('scroll.infinite', _.debounce(() => {
       let elem = this.threshold;
-      let totalScroll = elem[0].scrollHeight - elem.outerHeight();
+      let totalScroll = elem.get(0).scrollHeight - elem.outerHeight();
       let scrollTop = elem.scrollTop() + 10;
       if (totalScroll < scrollTop) {
         this.infinite.trigger('onInfinite');
