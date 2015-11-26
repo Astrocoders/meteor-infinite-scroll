@@ -2,7 +2,7 @@ Package.describe({
   name: 'astrocoders:infinite-scroll',
   version: '0.0.1',
   summary: 'Simple infinite scroll',
-  git: 'git@github.com:Astrocoders/meteor-infinite-scroll.git',
+  git: 'https://github.com/Astrocoders/meteor-infinite-scroll/',
   documentation: 'README.md'
 });
 
